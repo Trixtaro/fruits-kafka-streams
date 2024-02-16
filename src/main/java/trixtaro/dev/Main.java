@@ -43,7 +43,7 @@ public class Main {
                 )
                 .count();
 
-        fruitNumbers.toStream().to("WordsWithCountsTopic", Produced.with(Serdes.String(), Serdes.Long()));
+        fruitNumbers.toStream().to("fruitsCounter", Produced.with(Serdes.String(), Serdes.Long()));
 
         KafkaStreams streams = new KafkaStreams(builder.build(), props);
         streams.start();
